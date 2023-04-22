@@ -47,8 +47,8 @@ exit out using ctrl+d
 
 ##############################################
 
-view logs... which didnt work
-docker container logs webapp
+view logs...
+docker logs webapp
 
 attach... which means look at current logs...
 docker container attach webapp
