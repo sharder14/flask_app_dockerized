@@ -1,0 +1,9 @@
+Flask
+Jinja2
+numpy
+pandas
+Pillow
+plotly
+requests
+scikit-learn
+uwsgi

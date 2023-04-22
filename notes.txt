@@ -1,0 +1,59 @@
+.... Create actual read me... these are just notes:
+
+For testing without docker... create virtual env...
+
+cd home/pythonProjects/envs
+python3 -m venv datasci
+cd datasci
+source bin/activate
+
+Then install requirements.txt
+pip3 install -r requirements.txt
+
+###################################################
+
+to run regular app with uwsgi run:
+
+cd webapp/webapp
+uswgi --http 0.0.0.0:8080 --wsgi-file main.py --callable app
+
+The callable comes from the variable in main.py which is :   app=Flask(__name__)
+
+#########################
+
+Also can run 
+
+cd webapp/webapp
+
+uwsgi uwsgi.ini
+
+#########################################
+
+#Build the image
+
+docker build -t "webapp" .
+
+#Run the container
+
+docker run -d -p 56733:8080 --name=webapp -v $PWD/webapp:/webapp webapp
+
+##############################################
+
+GET into current running docker container bash:
+
+docker exec -it webapp bash
+
+exit out using ctrl+d
+
+##############################################
+
+view logs... which didnt work
+docker container logs webapp
+
+attach... which means look at current logs...
+docker container attach webapp
+
+to get out of the attach without stopping aka detach use
+ctrl+p ctrl+q or ctrl+p+q same time..
+
+
